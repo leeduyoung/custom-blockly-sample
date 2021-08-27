@@ -1,0 +1,60 @@
+<category name="Music" colour="#E5BC16" iconclass="blocklyTreeIconCustom music">
+    <label text="Music" web-class="myLabelStyle"></label>
+    <block type="musicimport"></block>
+    <block type="musicplay">
+      <value name="text">
+        <shadow type="textinline">
+          <field name="text"></field>
+        </shadow>
+      </value>
+    </block>
+    <block type="songs"></block>
+    <block type="musicpitch">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+    </block>
+    <block type="musictempo">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+    </block>
+    <block type="musicreset"></block>
+    <block type="musicstop">
+    <value name="text">
+      <shadow type="textinline">
+        <field name="text"></field>
+      </shadow>
+    </value>
+    </block>
+    <block type="musicgettempo"></block>
+    <label text="V2 Only" web-class="myLabelStyle"></label>
+    <block type="audioimport"></block>
+    <block type="audioplay">
+      <value name="text">
+        <block type="audio_options"></block>
+      </value>
+    </block>
+    <block type="audio_options"></block>
+    <block type="set_volume">
+      <value name="input">
+        <shadow type="volumeslider"></shadow>
+      </value>
+    </block>
+    <block type="music_pin">
+      <value name="pin">
+        <block type="pin_speaker"></block>
+      </value>
+    </block>
+    <block type="music_pin">
+      <value name="pin">
+        <shadow type="textinline">
+          <field name="text"></field>
+        </shadow>
+      </value>
+    </block>
+</category>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Extension } from './Page'
+import { getToolBoxXml } from '../blocks'
 
 interface BlocklyViewProps {
   visible: boolean
@@ -8,14 +9,29 @@ interface BlocklyViewProps {
 }
 
 function BlocklyView({ visible, xml, onChange }: BlocklyViewProps): JSX.Element {
-  const loadBlockly = (extensionsActive: Extension[]) => {
-    // TODO:
+  let blocklyDiv: any
+  let workspace: Blockly.WorkspaceSvg
+
+  const loadBlockly = async (extensionsActive: Extension[]) => {
+    if (blocklyDiv) {
+      if (workspace) {
+        workspace.dispose()
+      }
+
+      const toolbox = await getToolBoxXml(extensionsActive)
+      workspace = Blockly.inject(blocklyDiv, {
+        zoom: {},
+        media: 'blockly/media/',
+        collapse: false,
+        toolbox,
+      }) as Blockly.WorkspaceSvg
+    }
   }
 
   React.useEffect(() => {
     loadBlockly([])
   }, [])
 
-  return <div id="blockly"></div>
+  return <div id="blockly" ref={(div) => (blocklyDiv = div)}></div>
 }
 export default BlocklyView
