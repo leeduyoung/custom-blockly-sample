@@ -12,6 +12,7 @@ function BlocklyView({ visible, xml, onChange }: BlocklyViewProps): JSX.Element 
   let blocklyDiv: any
   let workspace: Blockly.WorkspaceSvg
 
+  console.log('Blockly: ', Blockly)
   const loadBlockly = async (extensionsActive: Extension[]) => {
     if (blocklyDiv) {
       if (workspace) {
