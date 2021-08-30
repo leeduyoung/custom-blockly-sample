@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import BlocklyView from './BlocklyView'
+import EditorView from './EditorView'
 
 const ViewModeBlockly = 'blocks'
 const ViewModePython = 'python'
@@ -90,10 +91,13 @@ interface PageState {
 
 function Page(): JSX.Element {
   const [values, setValues] = useState<PageState>(initState)
+  const [code, setCode] = useState<string>('# some comment')
 
   const onBlocklyChange = (xml: string, python: string) => {
     console.log('xml: ', xml)
     console.log('python: ', python)
+
+    setCode(python)
   }
 
   return (
@@ -103,6 +107,7 @@ function Page(): JSX.Element {
         xml={values.doc.xml}
         onChange={(xml, python) => onBlocklyChange(xml, python)}
       />
+      <EditorView code={code} />
     </section>
   )
 }

@@ -57,7 +57,13 @@ function BlocklyView({ visible, xml, onChange }: BlocklyViewProps): JSX.Element 
     loadBlockly(['Web General'])
   }, [])
 
-  return <div id="blockly" ref={(div) => (blocklyDiv = div)}></div>
+  return (
+    <div
+      id="blockly"
+      style={{ width: '60%', display: 'inline-block' }}
+      ref={(div) => (blocklyDiv = div)}
+    ></div>
+  )
 }
 export default BlocklyView
 
