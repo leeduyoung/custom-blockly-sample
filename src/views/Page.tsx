@@ -113,7 +113,7 @@ const initState: PageState = {
   modal: 'platform',
   includeTurtle: false,
   prevModal: null,
-  extensionsActive: [],
+  extensionsActive: ['Web General'],
   progress: 0,
   shareURL: '',
   shareFileName: '',
